@@ -3,12 +3,11 @@ package data;
 public class Defender extends Player {
 	int physique;
 	int tackle;
-	
-	public Defender(int speed,int shooting_skills,int exhaust
+	public Defender(String name,int speed,int shooting_skills,int exhaust
 			,boolean wounded,boolean substitute,int physique,int tackle) {
-		super(speed,shooting_skills,exhaust,wounded,substitute);
-		physique=this.physique;
-		tackle=this.tackle;	
+		super(name,speed,shooting_skills,exhaust,wounded,substitute);
+		this.physique=physique;
+		this.tackle=tackle;	
 	}
 
 	public int getPhysique() {

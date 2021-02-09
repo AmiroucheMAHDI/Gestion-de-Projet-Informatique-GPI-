@@ -2,6 +2,7 @@ package Process;
 
 import java.util.ArrayList;
 
+
 import data.*;
 import data.Coach;
 
@@ -10,15 +11,21 @@ import Process.PlayerProcess;
 
 public class EquipeProcess {
 	
-	private ArrayList<Goalkeeper> keeper;
-	private ArrayList<Forward> forw;
-	private ArrayList<Defender> def;
-	private Coach c;
+	//private static ArrayList<String> name=new ArrayList<String>();
 	
-	public EquipeProcess() {
+	
+	
+	public static Team EquipeProcess(String name) {
+		
+		Team a=new Team();
+		ArrayList<Goalkeeper> keeper;
+		ArrayList<Forward> forw;
+		ArrayList<Defender> def;
+		
 		Goalkeeper g;
 		Forward f;
 		Defender d;
+		Coach c;
 		
 		keeper=new ArrayList<Goalkeeper>();
 		forw=new ArrayList<Forward>();
@@ -26,28 +33,32 @@ public class EquipeProcess {
 		
 		
 		for(int i=0;i<3;i++) {
-		    g=PlayerProcess.generateGoalkeeper();
+		    g=PlayerProcess.generateGoalkeeper(i);
 			keeper.add(g);
 		}
 		
 		for(int i=0;i<8;i++) {
-		    f=PlayerProcess.generateForward();
+		    f=PlayerProcess.generateForward(i);
 			forw.add(f);
 		}
 		
 		for(int i=0;i<12;i++) {
-		    d=PlayerProcess.generateDefender();
+		    d=PlayerProcess.generateDefender(i);
 			def.add(d);
 		}
 		
-		c= new Coach() ;
+		c= CoachProcess.generateCoach() ;
+		a.setName(name);
+		a.setKeeper(keeper);
+		a.setDef(def);
+		a.setForw(forw);
+		a.setC(c);
+		
+		return a;
 	}
+	
+	
 
-
-	public void String() {
-		System.out.println( "EquipeProcess [keeper=" + keeper + ", forw=" + forw + ", def=" + def + ", c=" + c + "]");
-		System.out.println(keeper.size()+"--------------"+forw.size()+"---"+def.size()+"---"+c.getSkill());
-	}
 	
 
 }
